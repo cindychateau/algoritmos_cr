@@ -68,13 +68,42 @@ module.exports = class ListaEncadenada {
             aux = aux.next;
         }
     }
-
+    /*
+    head = Elena
+    Elena.next = Pedro
+    Pedro.next = Juan
+    Juan.next = Juana
+    Juana.next = null
+    valorABorrar = Juan
+    aux = Elena
+    previo = Elena
+    previo = Elena
+    aux = Pedro
+    previo = Pedro
+    aux = Juan
+    Pedro.next = Juan.next = Juana
+    Juan.next = null
+    */
     borrarNodo(valorABorrar) {
         //Preguntamos si el valorABorrar es = al valor del nodo head
         //nodo head = nodo head viejo.next
-
-        //Buscamos el nodo que tenemos con ese valor
-        //El nodo PREVIO al nodo a eliminar va a tener como next el nodo next del valor a eliminar
+        let aux = this.head;
+        if(aux.valor === valorABorrar) {
+            this.head = aux.next;
+            aux.next = null;
+        } else {
+            //Buscamos el nodo que tenemos con ese valor
+            //El nodo PREVIO al nodo a eliminar va a tener como next el nodo next del valor a eliminar
+            let previo = aux;
+            while(aux.next) { //Recorro la lista
+                if(aux.valor === valorABorrar) {
+                    previo.next = aux.next;
+                    aux.next = null;
+                }
+                previo = aux;
+                aux = aux.next;
+            }
+        }
     }
 
 }

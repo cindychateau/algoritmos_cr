@@ -17,3 +17,8 @@ listaPersonas.imprimeLista();
 
 listaPersonas.borrarNodo("Juana");
 
+console.log("------");
+
+listaPersonas.imprimeLista();
+
+
